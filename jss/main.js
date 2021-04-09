@@ -1,12 +1,13 @@
 
-
+//accessing the DOM Elements 
 const calculator = document.querySelector('.theCalculator');
 const theCalcKeys = document.querySelector('.theCalculatorKeys');
 
 const display = document.querySelector('.theCalculatorDisplay');
 
 
-theCalcKeys.addEventListener('click', e =>{
+//Adding Event Listeners to the calculator keys
+theCalcKeys.addEventListener('click', e =>{ //start of the event listener
 
     if(e.target.matches('button')){
 
@@ -17,6 +18,7 @@ theCalcKeys.addEventListener('click', e =>{
         const numberDisplay = display.textContent;
         const previousKeyType = calculator.dataset.previousKeyType
 
+        //search  through the arrays of  calculator keys and remove keys with the class is-depressed
         Array.from(theCalcKey.parentNode.children)
         .forEach(k => k.classList.remove('is-depressed'));
 
@@ -112,9 +114,9 @@ theCalcKeys.addEventListener('click', e =>{
 
        
     }
-});
+});// end of eventListner 
 
-
+//function calculate that does the computation 
 const calculate = (number1,operator, number2) =>{
     let result = '';
     if(operator === 'add'){
@@ -128,4 +130,4 @@ const calculate = (number1,operator, number2) =>{
         result = parseFloat(number1) / parseFloat(number2);
     }
     return result;
-}
+}//end of calculate function
